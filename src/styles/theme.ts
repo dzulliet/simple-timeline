@@ -65,6 +65,10 @@ export const color = {
   electricBlue950: "#090D10",
 };
 
-export const theme = { color };
+const border = {
+  solid: `${color.electricBlue} solid 3px`,
+};
+
+export const theme = { color, border };
 export type Theme = typeof theme;
 // export type ThemeProps = { theme: Theme };
