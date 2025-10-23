@@ -1,5 +1,6 @@
 export const color = {
   peachPuff: "#FFDCB9",
+  brilliantLavender: "#FFBAFF",
   freshAir: "#BADDFF",
   celeste: "#B8FFF5",
   electricBlue: "#4A6481",
@@ -27,6 +28,18 @@ export const color = {
   peachPuff800: "#753B00",
   peachPuff900: "#472400",
   peachPuff950: "#1A0D00",
+
+  brilliantLavender50: "#FFE6FF",
+  brilliantLavender100: "#FFBAFF",
+  brilliantLavender200: "#FF8AFF",
+  brilliantLavender300: "#FF5CFF",
+  brilliantLavender400: "#FF2EFF",
+  brilliantLavender500: "#FF00FF",
+  brilliantLavender600: "#D100D1",
+  brilliantLavender700: "#A300A3",
+  brilliantLavender800: "#750075",
+  brilliantLavender900: "#470047",
+  brilliantLavender950: "#1A001A",
 
   freshAir50: "#E6F2FF",
   freshAir100: "#BADDFF", // <<<
@@ -66,7 +79,8 @@ export const color = {
 };
 
 const border = {
-  solid: `${color.electricBlue} solid 3px`,
+  solid1: `1px solid ${color.celeste700}`,
+  solid3: `3px solid ${color.electricBlue}`,
 };
 
 export const theme = { color, border };

@@ -1,4 +1,5 @@
 import * as Styles from "./day-view.styles.tsx";
+import { Timeline } from "./timeline.tsx";
 
 export function DayView() {
   const today = new Date();
@@ -22,9 +23,7 @@ export function DayView() {
           <Styles.Weather>🌤️</Styles.Weather>
         </h3>
       </Styles.Header>
-      <Styles.Timeline>
-        tady bude timeline <span>pokus</span>
-      </Styles.Timeline>
+      <Timeline />
     </Styles.Wrapper>
   );
 }

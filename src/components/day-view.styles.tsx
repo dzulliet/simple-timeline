@@ -13,29 +13,28 @@ export const Weather = styled.div`
   height: 24px;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.color.peachPuff50};
-  background-color: ${({ theme }) => theme.color.celeste700};
+  background-color: ${({ theme }) => theme.color.freshAir400};
   border-radius: 100px;
 `;
 export const Header = styled.a`
   display: flex;
   flex-direction: column;
   padding: 1rem 1.5rem;
-  border: ${({ theme }) => theme.border.solid};
+  border: ${({ theme }) => theme.border.solid3};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border-bottom: ${({ theme }) => theme.border.solid};
-  background-color: ${({ theme }) => theme.color.electricBlue50};
+  border-bottom: ${({ theme }) => theme.border.solid3};
+  background-color: ${({ theme }) => theme.color.freshAir50};
 
   &:hover {
     cursor: pointer;
-    background-color: ${({ theme }) => theme.color.freshAir50};
+    background-color: ${({ theme }) => theme.color.brilliantLavender50};
     h2 {
-      color: ${({ theme }) => theme.color.celeste800};
+      color: ${({ theme }) => theme.color.freshAir600};
     }
 
     h3 {
-      color: ${({ theme }) => theme.color.celeste700};
+      color: ${({ theme }) => theme.color.freshAir400};
     }
 
     ${Weather} {
@@ -48,23 +47,13 @@ export const Header = styled.a`
     justify-content: space-between;
     font-size: large;
     font-weight: bold;
+    color: ${({ theme }) => theme.color.celeste800};
   }
 
   h3 {
     display: flex;
     justify-content: space-between;
-    color: ${({ theme }) => theme.color.electricBlue400};
+    color: ${({ theme }) => theme.color.celeste700};
     font-weight: 600;
   }
-`;
-export const Timeline = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 1rem 1.5rem;
-  border: ${({ theme }) => theme.border.solid};
-  border-top-width: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: ${({ theme }) => theme.color.electricBlue50};
 `;
