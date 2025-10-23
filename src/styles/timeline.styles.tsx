@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isError?: boolean }>`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -11,6 +11,20 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.color.freshAir50};
   color: ${({ theme }) => theme.color.celeste800};
   padding: 2px 2px 2px 0;
+
+  ${({ isError, theme }) =>
+    isError &&
+    css`
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-color: ${theme.color.peachPuff100};
+      color: ${theme.color.peachPuff600};
+
+      #icon {
+        font-size: xx-large;
+      }
+    `}
 `;
 
 export const Scrollable = styled.div`

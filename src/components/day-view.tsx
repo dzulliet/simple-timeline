@@ -1,7 +1,12 @@
-import * as Styles from "./day-view.styles.tsx";
+import * as Styles from "../styles/day-view.styles.tsx";
 import { Timeline } from "./timeline.tsx";
+import type { Event } from "../assets/fixtures.ts";
 
-export function DayView() {
+type Props = {
+  events: Event[];
+};
+
+export function DayView({ events }: Props) {
   const today = new Date();
   const month = `${months[today.getMonth()]} ${today.getDate()}`;
   const year = `${today.getFullYear()}`;
@@ -23,7 +28,7 @@ export function DayView() {
           <Styles.Weather>🌤️</Styles.Weather>
         </h3>
       </Styles.Header>
-      <Timeline />
+      <Timeline events={events} />
     </Styles.Wrapper>
   );
 }
