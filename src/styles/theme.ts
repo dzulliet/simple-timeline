@@ -1,10 +1,8 @@
 export const color = {
-  base: {
-    peachPuff: "#FFDCB9",
-    freshAir: "#BADDFF",
-    celeste: "#B8FFF5",
-    electricBlue: "#4A6481",
-  },
+  peachPuff: "#FFDCB9",
+  freshAir: "#BADDFF",
+  celeste: "#B8FFF5",
+  electricBlue: "#4A6481",
 
   neutral50: "#FFFFFF",
   neutral100: "#E7E7E7",
