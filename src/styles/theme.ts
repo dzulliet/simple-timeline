@@ -1,9 +1,17 @@
+export const baseColors = [
+  "peachPuff",
+  "brilliantLavender",
+  "freshAir",
+  "celeste",
+  // "electricBlue",
+] as const;
+
 export const color = {
   peachPuff: "#FFDCB9", // peachPuff100
   brilliantLavender: "#FFBAFF", // brilliantLavender100
   freshAir: "#BADDFF", // freshAir100
   celeste: "#B8FFF5", // celeste100
-  electricBlue: "#4A6481", //electricBlue600
+  electricBlue: "#D2DBE5", //electricBlue100
 
   neutral50: "#FFFFFF",
   neutral100: "#E7E7E7",
@@ -80,10 +88,15 @@ export const color = {
 
 const border = {
   solid1: `1px solid ${color.celeste700}`,
-  solid3: `3px solid ${color.electricBlue}`,
+  solid3: `3px solid ${color.electricBlue600}`,
 };
 
 export const theme = { color, border };
 export type Theme = typeof theme;
 export type Color = keyof typeof color;
-// export type ThemeProps = { theme: Theme };
+export type BaseColor =
+  | "peachPuff"
+  | "brilliantLavender"
+  | "freshAir"
+  | "celeste"
+  | "electricBlue";

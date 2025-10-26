@@ -123,7 +123,8 @@ function TimelineEventGroup({ group }: { group: Event[] }) {
 
   return eventColumns.flat().map(({ id, ...layoutEvent }) => (
     <Styles.Event key={id} {...layoutEvent} columnCount={eventColumns.length}>
-      <span>{layoutEvent.title}</span>
+      <Styles.Title>{layoutEvent.title}</Styles.Title>
+      <Styles.SecondaryTitle>{`${layoutEvent.start}-${layoutEvent.end}`}</Styles.SecondaryTitle>
     </Styles.Event>
   ));
 }

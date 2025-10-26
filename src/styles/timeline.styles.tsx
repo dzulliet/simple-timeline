@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import type { Color } from "./theme.ts";
+import type { BaseColor } from "./theme.ts";
 
 export const Wrapper = styled.div<{ isError?: boolean }>`
   display: flex;
@@ -82,15 +82,34 @@ export const Slot = styled.div`
 `;
 
 const SLOT_OFFSET = "55px";
+const MIN_EVENT_HEIGHT = "10px";
+
+export const Title = styled.span`
+  min-height: ${MIN_EVENT_HEIGHT};
+  max-height: min(100%, 1.4rem);
+  display: flex;
+  align-items: center;
+`;
+
+export const SecondaryTitle = styled.span`
+  min-height: ${MIN_EVENT_HEIGHT};
+  max-height: min(100%, 1.2rem);
+  display: flex;
+  align-items: center;
+`;
+
 export const Event = styled.div<{
   offsetX: number;
   offsetY: number;
   columnCount: number;
   duration: number;
-  color: Color;
+  color: BaseColor;
 }>`
   position: absolute;
-  height: ${({ duration }) => css`max(${duration}px, 10px)`};
+
+  overflow: hidden;
+
+  height: ${({ duration }) => css`max(${duration}px, ${MIN_EVENT_HEIGHT})`};
   width: ${({ columnCount }) => css`calc((100% - ${SLOT_OFFSET})/${columnCount})
   `};
 
@@ -100,13 +119,16 @@ export const Event = styled.div<{
 
   border-radius: 6px;
   background-color: ${({ theme, color }) => theme.color[color]};
+  color: ${({ theme, color }) => theme.color[`${color}700`]};
   font-size: ${({ duration }) => css`min(${0.75 * duration}px, 0.9rem)`};
+  font-weight: 500;
   padding: 0 4px;
 
-  span {
-    min-height: 10px;
-    max-height: min(100%, 1.4rem);
-    display: flex;
-    align-items: center;
+  ${SecondaryTitle} {
+    font-size: ${({ duration }) => css`min(${0.75 * duration}px, 0.7rem)`};
+    visibility: ${({ duration }) =>
+      duration > 30
+        ? "visible"
+        : "hidden"}; // hide secondary title for events shorter than 30 mins
   }
 `;

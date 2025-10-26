@@ -24,5 +24,5 @@ export const PageTitle = styled.h1`
   margin: 0;
   font-size: xx-large;
   font-weight: bold;
-  color: ${({ theme }) => theme.color.electricBlue};
+  color: ${({ theme }) => theme.color.electricBlue600};
 `;
