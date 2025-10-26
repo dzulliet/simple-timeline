@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import type { Color } from "./theme.ts";
 
 export const Wrapper = styled.div<{ isError?: boolean }>`
   display: flex;
@@ -28,11 +29,13 @@ export const Wrapper = styled.div<{ isError?: boolean }>`
 `;
 
 export const Scrollable = styled.div`
+  position: relative;
+
   display: block;
-  width: 100%;
+  width: calc(100% - 1rem);
   height: 560px;
   overflow-y: scroll;
-  padding: 0 0.5rem 0 1.5rem;
+  margin: 0 0 0 1rem;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -76,4 +79,34 @@ export const Slot = styled.div`
   grid-area: slot;
   border-top: ${({ theme }) => theme.border.solid1};
   border-left: ${({ theme }) => theme.border.solid1};
+`;
+
+const SLOT_OFFSET = "55px";
+export const Event = styled.div<{
+  offsetX: number;
+  offsetY: number;
+  columnCount: number;
+  duration: number;
+  color: Color;
+}>`
+  position: absolute;
+  height: ${({ duration }) => css`max(${duration}px, 10px)`};
+  width: ${({ columnCount }) => css`calc((100% - ${SLOT_OFFSET})/${columnCount})
+  `};
+
+  top: ${({ offsetY }) => `${offsetY}px`};
+  left: ${({ offsetX, columnCount }) =>
+    css`calc(${SLOT_OFFSET} + ${offsetX} * ((100% - ${SLOT_OFFSET})/${columnCount}))`};
+
+  border-radius: 6px;
+  background-color: ${({ theme, color }) => theme.color[color]};
+  font-size: ${({ duration }) => css`min(${0.75 * duration}px, 0.9rem)`};
+  padding: 0 4px;
+
+  span {
+    min-height: 10px;
+    max-height: min(100%, 1.4rem);
+    display: flex;
+    align-items: center;
+  }
 `;

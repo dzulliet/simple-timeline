@@ -1,9 +1,11 @@
+import type { Color } from "../styles/theme.ts";
+
 export type Event = {
   id: number;
   title: string;
   start: string; // e.g., '09:30' (HH:MM)
   end: string; // e.g., '10:45' (HH:MM)
-  color: string;
+  color: Color;
 };
 
 export const mockEvents: Event[] = [

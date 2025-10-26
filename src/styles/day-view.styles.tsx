@@ -19,7 +19,7 @@ export const Weather = styled.div`
 export const Header = styled.a`
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   border: ${({ theme }) => theme.border.solid3};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;

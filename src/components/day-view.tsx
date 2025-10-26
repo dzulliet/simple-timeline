@@ -10,7 +10,7 @@ export function DayView({ events }: Props) {
   const today = new Date();
   const month = `${months[today.getMonth()]} ${today.getDate()}`;
   const year = `${today.getFullYear()}`;
-  const weekday = weekdays[today.getDay() - 1];
+  const weekday = weekdays[today.getDay()];
 
   return (
     <Styles.Wrapper>
@@ -49,11 +49,11 @@ const months = [
 ];
 
 const weekdays = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];

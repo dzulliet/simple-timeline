@@ -1,9 +1,9 @@
 export const color = {
-  peachPuff: "#FFDCB9",
-  brilliantLavender: "#FFBAFF",
-  freshAir: "#BADDFF",
-  celeste: "#B8FFF5",
-  electricBlue: "#4A6481",
+  peachPuff: "#FFDCB9", // peachPuff100
+  brilliantLavender: "#FFBAFF", // brilliantLavender100
+  freshAir: "#BADDFF", // freshAir100
+  celeste: "#B8FFF5", // celeste100
+  electricBlue: "#4A6481", //electricBlue600
 
   neutral50: "#FFFFFF",
   neutral100: "#E7E7E7",
@@ -18,7 +18,7 @@ export const color = {
   neutral950: "#0D0D0D",
 
   peachPuff50: "#FFF2E6",
-  peachPuff100: "#FFDCB9", // <<<
+  peachPuff100: "#FFDCB9",
   peachPuff200: "#FFC48A",
   peachPuff300: "#FFAD5C",
   peachPuff400: "#FF962E",
@@ -42,7 +42,7 @@ export const color = {
   brilliantLavender950: "#1A001A",
 
   freshAir50: "#E6F2FF",
-  freshAir100: "#BADDFF", // <<<
+  freshAir100: "#BADDFF",
   freshAir200: "#8AC4FF",
   freshAir300: "#5CADFF",
   freshAir400: "#2E96FF",
@@ -54,7 +54,7 @@ export const color = {
   freshAir950: "#000D1A",
 
   celeste50: "#E6FFFC",
-  celeste100: "#B8FFF5", // <<<
+  celeste100: "#B8FFF5",
   celeste200: "#8AFFEF",
   celeste300: "#5CFFE9",
   celeste400: "#2EFFE3",
@@ -71,7 +71,7 @@ export const color = {
   electricBlue300: "#97ACC3",
   electricBlue400: "#7A95B3",
   electricBlue500: "#5D7DA2",
-  electricBlue600: "#4A6481", // <<<
+  electricBlue600: "#4A6481",
   electricBlue700: "#3C5068",
   electricBlue800: "#2B3A4A",
   electricBlue900: "#1A232D",
@@ -85,4 +85,5 @@ const border = {
 
 export const theme = { color, border };
 export type Theme = typeof theme;
+export type Color = keyof typeof color;
 // export type ThemeProps = { theme: Theme };
