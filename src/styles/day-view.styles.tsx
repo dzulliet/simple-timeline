@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: 80vh;
+  border: ${({ theme }) => theme.border.solid3};
+  border-radius: 8px;
+  overflow: hidden;
 `;
 export const Weather = styled.div`
   visibility: hidden;
@@ -20,11 +23,9 @@ export const Header = styled.a`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: ${({ theme }) => theme.border.solid3};
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
   border-bottom: ${({ theme }) => theme.border.solid3};
   background-color: ${({ theme }) => theme.color.freshAir50};
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
@@ -55,5 +56,6 @@ export const Header = styled.a`
     justify-content: space-between;
     color: ${({ theme }) => theme.color.celeste700};
     font-weight: 600;
+    font-size: medium;
   }
 `;

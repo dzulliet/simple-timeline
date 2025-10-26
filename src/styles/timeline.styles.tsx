@@ -5,10 +5,6 @@ export const Wrapper = styled.div<{ isError?: boolean }>`
   display: flex;
   flex-direction: column;
   flex: 1;
-  border: ${({ theme }) => theme.border.solid3};
-  border-top-width: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   background-color: ${({ theme }) => theme.color.freshAir50};
   color: ${({ theme }) => theme.color.celeste800};
   padding: 2px 2px 2px 0;
