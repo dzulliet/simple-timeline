@@ -42,7 +42,12 @@ export const TimelineEventGroup = memo(function TimelineEventGroup({
   );
 
   return eventColumns.flat().map(({ id, ...layoutEvent }) => (
-    <Styles.Event key={id} {...layoutEvent} columnCount={eventColumns.length}>
+    <Styles.Event
+      key={id}
+      {...layoutEvent}
+      columnCount={eventColumns.length}
+      title={`${layoutEvent.title}\n${layoutEvent.start}-${layoutEvent.end}`}
+    >
       <Styles.Title>{layoutEvent.title}</Styles.Title>
       <Styles.SecondaryTitle>{`${layoutEvent.start}-${layoutEvent.end}`}</Styles.SecondaryTitle>
     </Styles.Event>
