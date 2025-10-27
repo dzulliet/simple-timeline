@@ -1,8 +1,8 @@
 import { ThemeProvider } from "./styles/theme-provider.tsx";
-import { getPageTitle } from "./utils/getPageTitle.ts";
 import { DayView } from "./components/day-view.tsx";
 import * as Styles from "./styles/page.styles.tsx";
 import { mockEvents } from "./assets/fixtures.ts";
+import { getPageTitle } from "./utils.tsx";
 
 function App() {
   return (

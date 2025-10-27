@@ -1,4 +1,5 @@
-import { type BaseColor, baseColors } from "../styles/theme.ts";
+import { type BaseColor } from "../styles/theme.ts";
+import { getRandomColor } from "../utils.tsx";
 
 export type Event = {
   id: number;
@@ -7,10 +8,6 @@ export type Event = {
   end: string; // e.g., '10:45' (HH:MM)
   color: BaseColor;
 };
-
-function getRandomColor() {
-  return baseColors[Math.floor(Math.random() * baseColors.length)];
-}
 
 export const mockEvents: Event[] = [
   {
@@ -69,4 +66,28 @@ export const mockEvents: Event[] = [
     end: "11:15",
     color: getRandomColor(),
   },
+];
+
+export const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+export const WEEKDAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];

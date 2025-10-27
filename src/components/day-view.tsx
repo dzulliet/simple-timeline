@@ -1,6 +1,6 @@
 import * as Styles from "../styles/day-view.styles.tsx";
 import { Timeline } from "./timeline.tsx";
-import type { Event } from "../assets/fixtures.ts";
+import { type Event, MONTHS, WEEKDAYS } from "../assets/fixtures.ts";
 
 type Props = {
   events: Event[];
@@ -8,9 +8,9 @@ type Props = {
 
 export function DayView({ events }: Props) {
   const today = new Date();
-  const month = `${months[today.getMonth()]} ${today.getDate()}`;
+  const month = `${MONTHS[today.getMonth()]} ${today.getDate()}`;
   const year = `${today.getFullYear()}`;
-  const weekday = weekdays[today.getDay()];
+  const weekday = WEEKDAYS[today.getDay()];
 
   return (
     <Styles.Wrapper>
@@ -32,28 +32,3 @@ export function DayView({ events }: Props) {
     </Styles.Wrapper>
   );
 }
-
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
