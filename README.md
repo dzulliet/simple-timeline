@@ -1,4 +1,5 @@
 # Simple timeline
 This app shows a simple calendar timeline currently with static mocked data only.
 
-## todo screenshot
+## Preview
+![Simple timeline preview](src/assets/simple-timeline.png?raw=true "Simple timeline")

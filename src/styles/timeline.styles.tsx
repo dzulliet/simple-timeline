@@ -1,6 +1,11 @@
 import styled, { css } from "styled-components";
 import type { BaseColor } from "./theme.ts";
 
+const SLOT_OFFSET = css`calc(0.8rem + 60px)`;
+const MIN_EVENT_HEIGHT = 10;
+const SCROLLBAR_WIDTH = 8;
+const EVENT_GAP = 4;
+
 export const Wrapper = styled.div<{ isError?: boolean }>`
   display: flex;
   flex-direction: column;
@@ -31,10 +36,10 @@ export const Scrollable = styled.div`
   width: calc(100% - 1rem);
   height: 560px;
   overflow-y: scroll;
-  margin: 0 0 0 1rem;
+  padding-left: 1rem;
 
   &::-webkit-scrollbar {
-    width: 8px;
+    width: ${SCROLLBAR_WIDTH}px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.color.celeste600};
@@ -42,9 +47,6 @@ export const Scrollable = styled.div`
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: ${({ theme }) => theme.color.brilliantLavender100};
-  }
-  &::-webkit-scrollbar-track {
-    padding: 20px;
   }
 `;
 
@@ -77,21 +79,27 @@ export const Slot = styled.div`
   border-left: ${({ theme }) => theme.border.solid1};
 `;
 
-const SLOT_OFFSET = "55px";
-const MIN_EVENT_HEIGHT = "10px";
-
 export const Title = styled.span`
-  min-height: ${MIN_EVENT_HEIGHT};
+  min-height: ${MIN_EVENT_HEIGHT}px;
   max-height: min(100%, 1.4rem);
   display: flex;
   align-items: center;
 `;
 
 export const SecondaryTitle = styled.span`
-  min-height: ${MIN_EVENT_HEIGHT};
+  min-height: ${MIN_EVENT_HEIGHT}px;
   max-height: min(100%, 1.2rem);
   display: flex;
   align-items: center;
+`;
+
+const width = css<{ columnCount: number }>`
+  ${({ columnCount }) =>
+    css`calc((100% - 1rem - ${columnCount - 1} * ${SCROLLBAR_WIDTH + EVENT_GAP}px - ${SLOT_OFFSET})/${columnCount})`}
+`;
+
+const offsetX = css<{ offsetX: number }>`
+  ${({ offsetX }) => offsetX}
 `;
 
 export const Event = styled.div<{
@@ -105,13 +113,14 @@ export const Event = styled.div<{
 
   overflow: hidden;
 
-  height: ${({ duration }) => css`max(${duration}px, ${MIN_EVENT_HEIGHT})`};
-  width: ${({ columnCount }) => css`calc((100% - ${SLOT_OFFSET})/${columnCount})
-  `};
+  height: ${({ duration }) => css`max(${duration}px, ${MIN_EVENT_HEIGHT}px)`};
+  width: ${width};
 
   top: ${({ offsetY }) => `${offsetY}px`};
-  left: ${({ offsetX, columnCount }) =>
-    css`calc(${SLOT_OFFSET} + ${offsetX} * ((100% - ${SLOT_OFFSET})/${columnCount}))`};
+  left: calc(
+    ${SLOT_OFFSET} + ${offsetX} * ${SCROLLBAR_WIDTH + EVENT_GAP}px +
+      ${offsetX} * ${width}
+  );
 
   border-radius: 6px;
   background-color: ${({ theme, color }) => theme.color[color]};
