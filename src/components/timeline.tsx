@@ -49,6 +49,7 @@ function TimelineComponent({ events }: Props) {
         {groupedEvents.map((group, idx) => (
           <TimelineEventGroup key={idx} group={group} />
         ))}
+        <Styles.TimeNow />
       </Styles.Scrollable>
     </Styles.Wrapper>
   );

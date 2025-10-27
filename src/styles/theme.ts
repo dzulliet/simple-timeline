@@ -88,6 +88,7 @@ export const color = {
 
 const border = {
   solid1: `1px solid ${color.celeste700}`,
+  solid2: `3px solid ${color.peachPuff400}`,
   solid3: `3px solid ${color.electricBlue600}`,
 };
 

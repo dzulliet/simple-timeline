@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import type { BaseColor } from "./theme.ts";
 
 const SLOT_OFFSET = css`calc(0.8rem + 60px)`;
+const TIME_NOW_OFFSET = 53;
 const MIN_EVENT_HEIGHT = 10;
 const SCROLLBAR_WIDTH = 8;
 const EVENT_GAP = 4;
@@ -136,4 +137,19 @@ export const Event = styled.div<{
         ? "visible"
         : "hidden"}; // hide secondary title for events shorter than 30 mins
   }
+`;
+
+export const TimeNow = styled.div`
+  position: absolute;
+  top: ${() => {
+    const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
+    const minutesSinceMidnight = 60 * hours + minutes;
+
+    return `${minutesSinceMidnight}px`;
+  }};
+  left: ${TIME_NOW_OFFSET}px;
+  width: calc(100% - ${TIME_NOW_OFFSET}px);
+  border-top: ${({ theme }) => theme.border.solid2};
 `;
